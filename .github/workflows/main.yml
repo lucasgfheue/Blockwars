@@ -20,15 +20,27 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.2.1'
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      - name: Find project folder
+        id: proj
+        run: |
+          file=$(find . -name settings.gradle -not -path "./.git/*" | head -n 1)
+          if [ -z "$file" ]; then
+            echo "No se encontro settings.gradle. Archivos en el repositorio:"
+            find . -not -path "./.git/*" | head -n 100
+            exit 1
+          fi
+          echo "dir=$(dirname "$file")" >> "$GITHUB_OUTPUT"
+          echo "Proyecto encontrado en: $(dirname "$file")"
 
       - name: Build with Gradle
-        run: ./gradlew build
+        working-directory: ${{ steps.proj.outputs.dir }}
+        run: gradle build
 
       - name: Upload mod jar
         uses: actions/upload-artifact@v4
         with:
           name: blockwars-mod
-          path: build/libs/*.jar
+          path: '**/build/libs/*.jar'
