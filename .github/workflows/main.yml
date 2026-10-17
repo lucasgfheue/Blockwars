@@ -35,6 +35,18 @@ jobs:
           echo "dir=$(dirname "$file")" >> "$GITHUB_OUTPUT"
           echo "Proyecto encontrado en: $(dirname "$file")"
 
+      # The sources travel as src.zip (GitHub's web uploader only allows 100 files at a time)
+      - name: Unpack sources
+        working-directory: ${{ steps.proj.outputs.dir }}
+        run: |
+          zipfile=$(find "$GITHUB_WORKSPACE" -name src.zip -not -path "*/.git/*" | head -n 1)
+          if [ -n "$zipfile" ]; then
+            echo "Descomprimiendo $zipfile"
+            rm -rf src
+            unzip -q -o "$zipfile" -d .
+          fi
+          echo "Archivos Java: $(find src -name '*.java' | wc -l)"
+
       - name: Build with Gradle
         working-directory: ${{ steps.proj.outputs.dir }}
         run: gradle build
