@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["ISI", "IDI", "MBM"],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "S": { "item": "minecraft:diamond_sword" },
+    "D": { "item": "minecraft:diamond_block" },
+    "M": { "item": "minecraft:phantom_membrane" },
+    "B": { "item": "minecraft:blast_furnace" }
+  },
+  "result": { "id": "blockwars:vanguard_core", "count": 1 }
+}

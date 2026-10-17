@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["ICI", "IDI", "PBP"],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "C": { "item": "minecraft:crossbow" },
+    "D": { "item": "minecraft:diamond" },
+    "P": { "item": "minecraft:piston" },
+    "B": { "item": "minecraft:blast_furnace" }
+  },
+  "result": { "id": "blockwars:goliath_core", "count": 1 }
+}

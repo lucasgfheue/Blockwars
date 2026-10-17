@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    "IDI",
+    "PBP"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "R": { "item": "minecraft:redstone_block" },
+    "D": { "item": "minecraft:diamond" },
+    "P": { "item": "minecraft:piston" },
+    "B": { "item": "minecraft:blast_furnace" }
+  },
+  "result": {
+    "id": "blockwars:mecha_core",
+    "count": 1
+  }
+}

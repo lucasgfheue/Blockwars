@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["ITI", "IDI", "PBP"],
+  "key": {
+    "I": { "item": "minecraft:iron_block" },
+    "T": { "item": "minecraft:tnt" },
+    "D": { "item": "minecraft:diamond_block" },
+    "P": { "item": "minecraft:piston" },
+    "B": { "item": "minecraft:blast_furnace" }
+  },
+  "result": { "id": "blockwars:bastion_core", "count": 1 }
+}
